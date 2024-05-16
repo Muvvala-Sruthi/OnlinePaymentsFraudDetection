@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Fraud Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="number"], button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>    
+    <div class="container">
+        <h1>Online Fraud Detection</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+            <label for="amount">Amount:</label>
+            <input type="number" step="any" id="amount" name="amount" placeholder="Enter amount" required>
+
+            <label for="oldbalanceOrg">Old Balance Orig:</label>
+            <input type="number" step="any" id="oldbalanceOrg" name="oldbalanceOrg" placeholder="Enter oldbalanceOrg" required>
+                        
+            <label for="newbalanceOrig">New Balance Orig:</label>
+            <input type="number" step="any" id="newbalanceOrig" name="newbalanceOrig" placeholder="Enter newbalanceOrig" required>
+            
+            <label for="oldbalanceDest">Old Balance Dest:</label>
+            <input type="number" step="any" id="oldbalanceDest" name="oldbalanceDest" placeholder="Enter oldbalanceDest" required>
+            
+            <label for="newbalanceDest">New Balance Dest:</label>
+            <input type="number" step="any" id="newbalanceDest" name="newbalanceDest" placeholder="Enter newbalanceDest" required>
+            
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+        <h3>{{ prediction_text }}</h3>
+    
+</body>
+</html> 

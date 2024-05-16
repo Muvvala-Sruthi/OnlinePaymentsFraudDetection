@@ -1,0 +1,2 @@
+To get into virtual environment:
+python -m venv venv
